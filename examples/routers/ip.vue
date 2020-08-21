@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Ip></Ip>
+    <Ip v-model='ipModel'></Ip>
   </div>
 </template>
 
@@ -9,7 +9,7 @@
     name: '',
     data() {
       return {
-        
+        ipModel: '192.168.0.1'
       }
     }
   }

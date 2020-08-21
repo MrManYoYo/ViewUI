@@ -123,7 +123,6 @@
                         val = min;
                     }
                 }
-
                 this.$nextTick(() => {
                     this.currentValue = val;
                     this.$emit('input', val);
@@ -143,13 +142,7 @@
                 }
             },
             keyDown (e) {
-                if (e.keyCode === 38) {
-                    e.preventDefault();
-                    this.up(e);
-                } else if (e.keyCode === 40) {
-                    e.preventDefault();
-                    this.down(e);
-                } else if (e.keyCode === 190) {
+                if (e.keyCode === 190) {
                     e.preventDefault();
                     this.$emit('dotClick')
                 }
@@ -180,16 +173,7 @@
                 }
             },
             changeVal (val) {
-                val = Number(val);
-                if (!isNaN(val)) {
-                    const step = this.step;
-
-                    this.upDisabled = val + step > this.max;
-                    this.downDisabled = val - step < this.min;
-                } else {
-                    this.upDisabled = true;
-                    this.downDisabled = true;
-                }
+                // val = Number(val);
             },
             setFocus () {
                 this.$refs.ipInput.focus()
