@@ -1,5 +1,7 @@
 <template>
-  <div>lorem</div>
+  <div>
+    <Ip></Ip>
+  </div>
 </template>
 
 <script>
