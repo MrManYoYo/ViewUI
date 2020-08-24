@@ -57,12 +57,12 @@
             if (!item && typeof item !== '0') {
               nums[index] = null
             } else {
-              nums[index] = Number(item)
+              nums[index] = isNaN(Number(item)) ? null : Number(item)
             }
           })
           return nums
         },
-        set (val, arg) {
+        set (val) {
           // console.log(val)
         }
       }
@@ -81,13 +81,33 @@
           if (!item && typeof item !== '0') {
             nums[index] = null
           } else {
-            nums[index] = Number(item)
+            nums[index] = isNaN(Number(item)) ? null : Number(item)
           }
         })
         this.ipModel = nums
       },
     },
+    mounted () {
+      this.formatValue(this.value)
+    },
     methods: {
+      formatValue (value) {
+        const items = this.value.split('.')
+        if (items.length !== 4) {
+          this.$emit('input', '...')
+          return
+        }
+        items.forEach((item, index) => {
+          if (!item && item !== '0') {
+            items[index] = null
+          } else if (isNaN(Number(item))) {
+            items[index] = null
+          } else if (Number(item) > 255 || item < 0) {
+            items[index] = null
+          }
+        })
+        this.$emit('input', items.join('.'))
+      },
       ipItemChangeHandle (value, index) {
         //
         this.$emit('input', this.ipModel.join('.'))
