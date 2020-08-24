@@ -27,6 +27,7 @@ import Header from './components/header';
 import Icon from './components/icon';
 import Input from './components/input';
 import InputNumber from './components/input-number';
+import Ip from './components/ip';
 import Scroll from './components/scroll';
 import Split from './components/split';
 import Layout from './components/layout';
@@ -98,6 +99,7 @@ const components = {
     Icon,
     Input,
     InputNumber,
+    Ip,
     Scroll,
     Sider: Sider,
     Split,
@@ -152,6 +154,7 @@ const iview = {
     iFooter: Footer,
     iHeader: Header,
     iInput: Input,
+    iIp: Ip,
     iMenu: Menu,
     iOption: Option,
     iProgress: Progress,

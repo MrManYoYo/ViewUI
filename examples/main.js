@@ -238,6 +238,10 @@ const router = new VueRouter({
         {
             path: '/list',
             component: (resolve) => require(['./routers/list.vue'], resolve)
+        },
+        {
+            path: '/ip',
+            component: (resolve) => require(['./routers/ip.vue'], resolve)
         }
     ]
 });
